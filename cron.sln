@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cronParser", "cronParser\cronParser.csproj", "{01045224-B101-4FF9-A705-F79B3C04D60E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cronParser.Tests", "cronParser.Tests\cronParser.Tests.csproj", "{7E916D69-634A-43AE-A65B-7FAC0E4FA6ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cronParser.App", "cronParser.App\cronParser.App.csproj", "{4117C775-62F5-460D-B80D-5AC527422602}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01045224-B101-4FF9-A705-F79B3C04D60E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01045224-B101-4FF9-A705-F79B3C04D60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01045224-B101-4FF9-A705-F79B3C04D60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01045224-B101-4FF9-A705-F79B3C04D60E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E916D69-634A-43AE-A65B-7FAC0E4FA6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E916D69-634A-43AE-A65B-7FAC0E4FA6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E916D69-634A-43AE-A65B-7FAC0E4FA6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E916D69-634A-43AE-A65B-7FAC0E4FA6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4117C775-62F5-460D-B80D-5AC527422602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4117C775-62F5-460D-B80D-5AC527422602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4117C775-62F5-460D-B80D-5AC527422602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4117C775-62F5-460D-B80D-5AC527422602}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
