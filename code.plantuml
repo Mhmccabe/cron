@@ -1,0 +1,84 @@
+@startuml
+together #eeeeee{
+    package "CronParser"  {
+        CronJob *-->  "config" CronConfig
+        CronConfig *-- "5" CronJobField
+
+        CronJobField ..> CronParamTypeEnum
+    }
+    package "CronParser.App" {
+        "Console App" --> "c" CronJob
+    }
+}
+
+package "CronParser.Tests" {
+CronParserCoreTests .. CronJob
+CronParseTest .. CronJobField
+
+}
+
+
+
+
+class CronConfig {
+    CronJobField Minute
+    CronJobField Hour
+    CronJobField DayOfMonth
+    CronJobField Month
+    CronJobField DayOfWeek
+    string      command
+
+}
+
+
+class CronJobField {
+    CronParamTypeEnum ParamType
+    int[] values
+    string param
+}
+
+class CronJob {
+    CronConfig Config
+}
+
+class CronParserCoreTests{
+    CheckInvalidCronJob()
+    CheckValidCronJob()
+    CheckValidCronJobEveryMin()
+    CheckValidCronJobEvery15an30()
+    CheckValidCronDataTypes()
+
+}
+
+class CronParseTest
+{
+    WilCardParamtype()
+    RangeParamtype()
+    ValuesParamtype()
+    ValueParamType()
+    InvalidaramType()
+    CheckInvalidListfieldCronJob()
+    CheckInvalidValuefieldCronJob()
+ 
+}
+
+enum CronParamTypeEnum{
+        0 invalid
+        1 Value
+        2 List
+        3 Calculation
+        4 Range
+        5 All
+
+}
+    note right of CronConfig
+        Holds the configuration 
+        of a cron job
+    end note
+
+    note right of CronJobField
+        holds the parsed field
+        type pattern and valid values
+    end note
+
+@enduml
