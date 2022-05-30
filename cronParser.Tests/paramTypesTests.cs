@@ -62,4 +62,18 @@ public class ParamtypesTests
         });
     }
 
+       [Fact]
+    /// validate single value cannot be outside of the valid range
+    public void CheckCalculationfieldCronJob()
+    {
+          var sut = new CronJobField("*/10", 0, 59);
+          Assert.True( sut.Values.Count == 6);
+          Assert.True( sut.Values[0] == 0);
+          Assert.True( sut.Values[1] == 10);
+          Assert.True( sut.Values[2] == 20);
+          Assert.True( sut.Values[3] == 30);
+          Assert.True( sut.Values[4] == 40);
+          Assert.True( sut.Values[5] == 50);
+    }
+
 }
