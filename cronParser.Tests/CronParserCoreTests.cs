@@ -64,4 +64,20 @@ public class CronParserTests
 
     }
 
+    [Fact]
+    public void CheckCalculation()
+    {
+        var c = new cron.CronJob("*/10 * * * * ./task");
+        var cfg = c.Config;
+
+        Assert.True(c != null);
+        Assert.True(cfg.Minutes.Values.Count == 6);
+        Assert.True(cfg.Minutes.Values[0] == 0);
+        Assert.True(cfg.Minutes.Values[1] == 10);
+        Assert.True(cfg.Minutes.Values[2] == 20);
+        Assert.True(cfg.Minutes.Values[3] == 30);
+        Assert.True(cfg.Minutes.Values[4] == 40);
+        Assert.True(cfg.Minutes.Values[5] == 50);
+
+    }
 }
