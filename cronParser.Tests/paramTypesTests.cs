@@ -10,7 +10,7 @@ public class ParamtypesTests
     public void WilCardParamtype()
     {
       var sut = new CronJobField("*", 1, 2);
-      Assert.True(sut.ParamType == cron.cronParamTypeEnum.All);
+      Assert.True(sut.ParamType == cron.CronParamTypeEnum.All);
       Assert.True(sut.Values.Count == 2);
     }
 
@@ -18,37 +18,37 @@ public class ParamtypesTests
     public void RangeParamtype()
     {
       var sut = new CronJobField("1-2", 1, 2);
-      Assert.True(sut.ParamType == cron.cronParamTypeEnum.Range);
+      Assert.True(sut.ParamType == cron.CronParamTypeEnum.Range);
     }
    
     [Fact]
     public void ValuesParamtype()
     {
       var sut = new CronJobField("1,2", 1, 2);
-      Assert.True(sut.ParamType == cron.cronParamTypeEnum.List);
+      Assert.True(sut.ParamType == cron.CronParamTypeEnum.List);
     }
 
     [Fact]
     public void ValueParamType()
     {
       var sut = new CronJobField("1", 1, 2);
-      Assert.True(sut.ParamType == cron.cronParamTypeEnum.Value);
+      Assert.True(sut.ParamType == cron.CronParamTypeEnum.Value);
     }
 
     [Fact]
     public void InvalidaramType()
     {
       var sut = new CronJobField("x", 1, 2);
-      Assert.True(sut.ParamType == cron.cronParamTypeEnum.invalid);
+      Assert.True(sut.ParamType == cron.CronParamTypeEnum.invalid);
     }
 
     [Fact]
     /// validates non of the listed valies are outside the valid range
     public void CheckInvalidListfieldCronJob()
     {
-        Assert.Throws<ArgumentException>(() =>
+        _ = Assert.Throws<ArgumentException>(() =>
         {
-          var sut = new CronJobField("1,5", 1, 2);
+            var sut = new CronJobField("1,5", 1, 2);
         });
     }
 

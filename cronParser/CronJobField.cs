@@ -3,7 +3,7 @@ namespace cron
     ///holds the original passed parameter, its type and the interpelated values
     public class CronJobField {
         public string Param{ get; protected set; }
-        public cronParamTypeEnum ParamType{ get; protected set; }
+        public CronParamTypeEnum ParamType{ get; protected set; }
         public List<int> Values { get; protected set; }
 
         public CronJobField( string config, int minRange, int MaxRange )
@@ -18,22 +18,22 @@ namespace cron
         // determine the cron parameter type
         protected void FindcronParamType(string cronParam)
         {
-            cronParamTypeEnum CurrentParamType = cron.cronParamTypeEnum.invalid;
+            CronParamTypeEnum CurrentParamType = cron.CronParamTypeEnum.invalid;
 
             if( int.TryParse(cronParam, out _) )
-                CurrentParamType = cron.cronParamTypeEnum.Value;
+                CurrentParamType = cron.CronParamTypeEnum.Value;
             else
                 if (cronParam.Contains(','))
-                    CurrentParamType = cron.cronParamTypeEnum.List;
+                    CurrentParamType = cron.CronParamTypeEnum.List;
                 else
                 if( cronParam.Equals("*" ) )
-                    CurrentParamType = cron.cronParamTypeEnum.All;
+                    CurrentParamType = cron.CronParamTypeEnum.All;
                     else
                          if( cronParam.StartsWith("*/") )
-                            CurrentParamType = cron.cronParamTypeEnum.Calculation;
+                            CurrentParamType = cron.CronParamTypeEnum.Calculation;
                     else
                          if( cronParam.Contains('-') )
-                            CurrentParamType = cron.cronParamTypeEnum.Range;
+                            CurrentParamType = cron.CronParamTypeEnum.Range;
                
             this.ParamType = CurrentParamType;
         }
@@ -44,14 +44,14 @@ namespace cron
         {
             switch (this.ParamType)
             {
-                case cronParamTypeEnum.All : {
+                case CronParamTypeEnum.All : {
                     for (int i=minRange; i<=MaxRange;i++)
                     {
                         this.Values.Add(i);
                     }
                     break;
                 }
-                case cronParamTypeEnum.List :{
+                case CronParamTypeEnum.List :{
                             string[] vals = this.Param.Split(",");
                             for ( int i =0; i < vals.Length; i++)
                             {
@@ -63,7 +63,7 @@ namespace cron
                             }
                             break;
                         }
-                case cronParamTypeEnum.Calculation: {
+                case CronParamTypeEnum.Calculation: {
                     string[] vals =  this.Param.Split("/");
                     int stepSize = int.Parse( vals[1]);
                     for (int i=minRange; i<=MaxRange; i+=stepSize)
@@ -72,7 +72,7 @@ namespace cron
                     }
                     break;
                 }
-                case cronParamTypeEnum.Range: {
+                case CronParamTypeEnum.Range: {
                     string[] vals =  this.Param.Split("-");
                     int minVal = int.Parse( vals[0]);
                     int MaxVal = int.Parse( vals[1]);
@@ -85,7 +85,7 @@ namespace cron
                     }
                     break;
                 }
-                case cronParamTypeEnum.Value: {
+                case CronParamTypeEnum.Value: {
                    
                     int val = int.Parse( Param);
                     if( val >= minRange && val<= MaxRange)

@@ -3,7 +3,7 @@ using Xunit;
 
 namespace cronParser.Tests;
 
-public class cronParserTests
+public class CronParserTests
 {
     [Fact]
     /// validate that a empty cron definition will fail to create a class
@@ -56,11 +56,11 @@ public class cronParserTests
         var cfg = c.Config;
 
         Assert.True( c != null);
-        Assert.True( cfg.Minutes.ParamType      == cron.cronParamTypeEnum.Value);
-        Assert.True( cfg.Hours.ParamType        == cron.cronParamTypeEnum.List);
-        Assert.True( cfg.DaysOfMonth.ParamType  == cron.cronParamTypeEnum.Range);
-        Assert.True( cfg.Month.ParamType        == cron.cronParamTypeEnum.All);
-        Assert.True( cfg.DaysOfWeek.ParamType   == cron.cronParamTypeEnum.All);
+        Assert.True( cfg.Minutes.ParamType      == cron.CronParamTypeEnum.Value);
+        Assert.True( cfg.Hours.ParamType        == cron.CronParamTypeEnum.List);
+        Assert.True( cfg.DaysOfMonth.ParamType  == cron.CronParamTypeEnum.Range);
+        Assert.True( cfg.Month.ParamType        == cron.CronParamTypeEnum.All);
+        Assert.True( cfg.DaysOfWeek.ParamType   == cron.CronParamTypeEnum.All);
 
     }
 
