@@ -10,7 +10,7 @@ valid paramerter types
 |comma seperted | 1, 2, 3     | comma seperated list of values |
 |range          | 1-5         | range of values                |
 |all valus      | *           | all valid values               |
-| calculat      | * / 2       | caluclated value interval of 2 |
+|calculate      | * / 2       | caluclated value interval of 2 |
 
 
 ## tech stack
