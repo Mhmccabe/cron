@@ -1,6 +1,6 @@
 namespace cron
 {
-    public enum cronParamTypeEnum {
+    public enum CronParamTypeEnum {
         invalid,
         Value,
         List,
