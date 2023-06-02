@@ -89,3 +89,5 @@ dotnet publish -c Release
 * create chain of responsability for determining parameter type
 * add validation and better error message to invalid cron specification
 * derive from from ParamType making specialisation for Range, All, List etc replacing switch statement in ParamType.cs::CronParamToValues() 
+
+
